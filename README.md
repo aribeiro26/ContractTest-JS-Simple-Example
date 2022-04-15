@@ -1,6 +1,6 @@
 # Pact JS End-to-End Example
 
-Using a simple animal dating API, we demonstrate the following Pact features:
+Using a simple address dating API, we demonstrate the following Pact features:
 
 * Consumer testing and pact file generation, including advanced features like:
     * [Flexible matching](https://docs.pact.io/documentation/javascript/flexible_matching.html)
@@ -17,11 +17,11 @@ This comprises a complete E2E example that can be used as a basis for projects.
 	- [Consumer (Matching API)](#consumer-matching-api)
 - [Running the tests](#running-the-tests)
 - [Running the API](#running-the-api)
-	- [Animal Profile API](#animal-profile-api)
-		- [GET /animals](#get-animals)
-		- [GET /animals/:id](#get-animalsid)
-		- [GET /animals/available](#get-animalsavailable)
-		- [POST /animals](#post-animals)
+	- [Address Profile API](#Address-profile-api)
+		- [GET /Addresss](#get-Addresss)
+		- [GET /Addresss/:id](#get-Addresssid)
+		- [GET /Addresss/available](#get-Addresssavailable)
+		- [POST /Addresss](#post-Addresss)
 	- [Matching service](#matching-service)
 		- [GET /suggestions/:id](#get-suggestionsid)
 - [Viewing contracts with the Pact Broker](#viewing-contracts-with-the-pact-broker)
@@ -35,11 +35,11 @@ This comprises a complete E2E example that can be used as a basis for projects.
 
 ### Provider (Profile API)
 
-Provides Animal profile information, including interests, zoo location and other personal details.
+Provides Address profile information, including interests, zoo location and other personal details.
 
 ### Consumer (Matching API)
 
-Given an animal profile, recommends a suitable partner based on similar interests.
+Given an Address profile, recommends a suitable partner based on similar interests.
 
 ## Running the tests
 
@@ -56,33 +56,33 @@ If you want to experiment with the API to get an understanding:
 
 or individually :
 
-1. `npm run provider` - Runs the provider API (animal service)
+1. `npm run provider` - Runs the provider API (Address service)
 1. `npm run consumer` - Runs the consumer API (matching service)
 
-### Animal Profile API
+### Address Profile API
 
 The APIs are described below, including a bunch of cURL statements to invoke them.
 There is also a [Postman Collection](https://raw.githubusercontent.com/pact-foundation/pact-js/master/examples/e2e/pact-js-e2e.postman_collection).
 
-#### GET /animals
+#### GET /Addresss
 
 ```
-curl -X GET "http://localhost:8081/animals"
+curl -X GET "http://localhost:8081/Addresss"
 ```
 
-#### GET /animals/:id
+#### GET /Addresss/:id
 
 ```
-curl -X GET "http://localhost:8081/animals/1"
+curl -X GET "http://localhost:8081/Addresss/1"
 ```
 
-#### GET /animals/available
+#### GET /Addresss/available
 
 ```
-curl -X GET http://localhost:8081/animals/available
+curl -X GET http://localhost:8081/Addresss/available
 ```
 
-#### POST /animals
+#### POST /Addresss
 
 ```
 curl -X POST -H "Content-Type: application/json" -d '{
@@ -104,7 +104,7 @@ curl -X POST -H "Content-Type: application/json" -d '{
     "munching on a paddock bomb",
     "parkour"
   ]
-}' "http://localhost:8081/animals"
+}' "http://localhost:8081/Addresss"
 ```
 
 ### Matching service

@@ -3,8 +3,8 @@ const request = require('superagent')
 const server = express()
 const API_HOST = process.env.API_HOST || 'http://localhost:8081'
 
-// Fetch animals who are currently 'available' from the
-// Animal Service
+// Fetch address who are currently 'available' from the
+// Address Service
 const availableAddress= () => {
   return request
     .get(`${API_HOST}/ws/14808560`)
@@ -12,7 +12,7 @@ const availableAddress= () => {
       () => [])
 }
 
-// Find animals by their ID from the Animal Service
+// Find address by their ID from the Address Service
 const getCepById = (id) => {
   return request
     .get(`${API_HOST}/ws/${id}`)

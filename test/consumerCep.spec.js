@@ -39,7 +39,7 @@ describe('Pact', () => {
     'siafi': '6163'    
   }
 
-  const MIN_ADRESS = 2
+  const MIN_ADRESS = 1
 
   const cepBodyExpectation = {    
     'id': like(1),
