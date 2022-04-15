@@ -1,17 +1,16 @@
 {
-  "name": "e2e",
+  "name": "xpqualitycontracttestjs",
   "version": "1.0.0",
   "description": "Pact JS E2E Example",
   "scripts": {
-    "test:cep": "./node_modules/.bin/mocha test/consumerCep.spec.js",
-    "test:consumer": "./node_modules/.bin/mocha test/consumer.spec.js",
-    "test:publish": "node test/publish.js",
-    "test:provider": "./node_modules/.bin/mocha test/provider.spec.js",
+    "test:consumer": "./node_modules/.bin/mocha test/consumerCep.spec.js",
+    "test:provider": "./node_modules/.bin/mocha test/providerCep.spec.js",   
+    "test:publish": "node test/publish.js",    
     "api": "concurrently 'npm run provider' 'npm run consumer'",
     "consumer": "node ./consumerService.js",
     "provider": "node ./providerService.js"
   },
-  "author": "matt.fellows@onegeek.com.au",
+  "author": "alexisandro.ribeiro@xpi.com.br",
   "license": "MIT",
   "devDependencies": {
     "chai": "^3.5.0",

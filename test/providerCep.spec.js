@@ -7,22 +7,22 @@ chai.use(chaiAsPromised)
 const {
   server,
   importData,
-  animalRepository
-} = require('../provider.js')
+  addressRepository
+} = require('../providerCep.js')
 
 // Append some extra endpoints to mutate current state of the API
 server.get('/states', (req, res) => {
   res.json({
-    "Matching Service": ['Has some animals', 'Has no animals', 'Has an animal with ID 1']
+    "Matching Service": ['Has some address', 'Has no address', 'Has an address with ID 1']
   })
 })
 
 server.post('/setup', (req, res) => {
   const state = req.body.state
 
-  animalRepository.clear()
+  addressRepository.clear()
   switch (state) {
-    case 'Has no animals':
+    case 'Has no address':
       // do nothing
       break
     default:
@@ -33,7 +33,7 @@ server.post('/setup', (req, res) => {
 })
 
 server.listen(8081, () => {
-  console.log('Animal Profile Service listening on http://localhost:8081')
+  console.log('Address Profile Service listening on http://localhost:8081')
 })
 
 // Verify that the provider meets all consumer expectations
@@ -46,9 +46,9 @@ describe('Pact Verification', () => {
       providerStatesUrl: 'http://localhost:8081/states',
       providerStatesSetupUrl: 'http://localhost:8081/setup',
       // Remote pacts
-      // pactUrls: ['https://test.pact.dius.com.au/pacts/provider/Animal%20Profile%20Service/consumer/Matching%20Service/latest'],
+      // pactUrls: ['https://test.pact.dius.com.au/pacts/provider/Address%20Profile%20Service/consumer/Matching%20Service/latest'],
       // Local pacts
-      pactUrls: [path.resolve(process.cwd(), './pacts/matching_service-animal_profile_service.json')],
+      pactUrls: [path.resolve(process.cwd(), './pacts/matching_service-viacep_service.json')],
       pactBrokerUsername: 'dXfltyFMgNOFZAxr8io9wJ37iUpY42M',
       pactBrokerPassword: 'O5AIZWxelWbLvqMd8PkAVycBJh2Psyg1'
     }
